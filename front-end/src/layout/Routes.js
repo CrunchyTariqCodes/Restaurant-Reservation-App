@@ -3,7 +3,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Dashboard from "../dashboard/Dashboard";
 import NotFound from "./NotFound";
 import { today } from "../utils/date-time";
-import CreateReservation from "../reservations/reservations";
 import useQuery from "../utils/useQuery";
 import Reservations from "../reservations/reservations"
 

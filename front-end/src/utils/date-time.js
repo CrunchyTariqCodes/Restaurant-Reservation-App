@@ -80,3 +80,22 @@ export function next(currentDate) {
   date.setDate(date.getDate() + 1);
   return asDateString(date);
 }
+
+//validation allowing the creation/update of reservations for any day besides Tuesdays 
+export function isNotOnTuesday(reservation_date, errors) {
+  const [year, month, day] = reservation_date.split("-");
+  const date = new Date(`${month} ${day}, ${year}`);
+  if (date.getDay() === 2) {
+    errors.push(<li key="tuesday">Restaurant is closed on Tuesdays</li>);
+  }
+}
+
+//validation allowing for the creation/update of reservations only for times in the future
+export function isInTheFuture(reservation_date, errors) {
+  const [year, month, day] = reservation_date.split("-");
+  const date = new Date(`${month} ${day}, ${year}`);
+  const today = new Date();
+  if (date < today) {
+    errors.push(<li key="past">Reservation must be in the future</li>);
+  }
+}
