@@ -57,7 +57,7 @@ export function today() {
  *  the date one day prior to currentDate, formatted as YYYY-MM-DD
  */
 export function previous(currentDate) {
-  let [ year, month, day ] = currentDate.split("-");
+  let [year, month, day] = currentDate.split("-");
   month -= 1;
   const date = new Date(year, month, day);
   date.setMonth(date.getMonth());
@@ -73,7 +73,7 @@ export function previous(currentDate) {
  *  the date one day after currentDate, formatted as YYYY-MM-DD
  */
 export function next(currentDate) {
-  let [ year, month, day ] = currentDate.split("-");
+  let [year, month, day] = currentDate.split("-");
   month -= 1;
   const date = new Date(year, month, day);
   date.setMonth(date.getMonth());
@@ -81,7 +81,7 @@ export function next(currentDate) {
   return asDateString(date);
 }
 
-//validation allowing the creation/update of reservations for any day besides Tuesdays 
+//Time-based validation for creating and updating reservations
 export function isNotOnTuesday(reservation_date, errors) {
   const [year, month, day] = reservation_date.split("-");
   const date = new Date(`${month} ${day}, ${year}`);
@@ -90,7 +90,6 @@ export function isNotOnTuesday(reservation_date, errors) {
   }
 }
 
-//validation allowing for the creation/update of reservations only for times in the future
 export function isInTheFuture(reservation_date, errors) {
   const [year, month, day] = reservation_date.split("-");
   const date = new Date(`${month} ${day}, ${year}`);
