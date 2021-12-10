@@ -7,9 +7,9 @@ import { today } from "../utils/date-time";
 import Dashboard from "../dashboard/Dashboard";
 import Tables from "../tables/Tables";
 import Seat from "../seat/Seat";
-import Edit from "../reservationsFolder/Edit";
+import Edit from "../reservations/Edit";
 import Search from "../search/Search";
-import Reservations from "../reservationsFolder/Reservations.js";
+import Reservations from "../reservations/Reservations";
 import NotFound from "./NotFound";
 
 /**
