@@ -5,11 +5,11 @@ import useQuery from "../utils/useQuery";
 import { today } from "../utils/date-time";
 
 import Dashboard from "../dashboard/Dashboard";
-import Reservations from "../reservations/Reservations";
 import Tables from "../tables/Tables";
 import Seat from "../seat/Seat";
-import Edit from "../reservations/Edit";
+import Edit from "../reservationsFolder/Edit";
 import Search from "../search/Search";
+import Reservations from "../reservationsFolder/Reservations.js";
 import NotFound from "./NotFound";
 
 /**
