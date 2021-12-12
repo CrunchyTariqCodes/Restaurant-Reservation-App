@@ -21,10 +21,10 @@ function Menu() {
           </div>
         </Link>
         <hr className="sidebar-divider my-0" />
-        <ul className="nav navbar-nav text-light" id="accordionSidebar">
+        <ul className="nav navbar-nav text-white" id="accordionSidebar">
           <li className="nav-item">
             <Link className="nav-link" to="/dashboard">
-              <span className="oi oi-dashboard" />
+              <span class="oi oi-spreadsheet" />
               &nbsp;Dashboard
             </Link>
           </li>
@@ -42,7 +42,7 @@ function Menu() {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/tables/new">
-              <span className="oi oi-layers" />
+              <span class="oi oi-vertical-align-top" />
               &nbsp;New Table
             </Link>
           </li>

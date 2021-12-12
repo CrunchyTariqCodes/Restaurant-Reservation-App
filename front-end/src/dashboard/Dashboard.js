@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import ReservationTable from "./reservationTable/ReservationTable";
+import ReservationTable from "./reservationView/ReservationTable";
 import { listReservations, listTables } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { useHistory } from "react-router-dom";
 import { previous, next } from "../utils/date-time";
-import TableList from "./TableList/TableList";
+import TableList from "./tableView/TableList";
 
 /**
  * Defines the dashboard page.
