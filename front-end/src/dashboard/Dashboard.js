@@ -51,11 +51,11 @@ function Dashboard({ date }) {
         <h4 className="mb-0">Reservations for {date}</h4>
       </div>
       <div className="pb-2 d-flex justify-content-center">
-        <button className="btn btn-primary mr-1" onClick={handleCurrentDay}>
-          today
-        </button>
         <button className="btn btn-primary mr-1" onClick={handlePreviousDay}>
           previous
+        </button>
+        <button className="btn btn-primary mr-1" onClick={handleCurrentDay}>
+          today
         </button>
         <button className="btn btn-primary" onClick={handleNextDay}>
           next
