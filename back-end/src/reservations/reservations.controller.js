@@ -1,7 +1,7 @@
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 const service = require("./reservations.service");
 
-const VALID_RESERVATION_FIELDS = [
+const ValidFields = [
   "first_name",
   "last_name",
   "mobile_number",
@@ -11,7 +11,7 @@ const VALID_RESERVATION_FIELDS = [
 ];
 
 //helper function for validation
-function _validateTime(str) {
+function _correctTimeFormat(str) {
   const [hour, minute] = str.split(":");
 
   if (hour.length > 2 || minute.length > 2) {
@@ -34,7 +34,7 @@ function isValidReservation(req, res, next) {
     return next({ status: 400, message: `Must have data property.` });
   }
 
-  VALID_RESERVATION_FIELDS.forEach((field) => {
+  ValidFields.forEach((field) => {
     if (!reservation[field]) {
       return next({ status: 400, message: `${field} field required` });
     }
@@ -51,7 +51,7 @@ function isValidReservation(req, res, next) {
     }
 
     if (field === "reservation_time") {
-      if (!_validateTime(reservation[field])) {
+      if (!_correctTimeFormat(reservation[field])) {
         return next({ status: 400, message: `${field} is not a valid time` });
       }
     }
@@ -178,10 +178,10 @@ async function update(req, res, next) {
   res.json({ data: reservation });
 }
 
-async function modify(req, res, next) {
+async function edit(req, res, next) {
   const { reservation_Id } = req.params;
   const reservation = req.body.data;
-  const data = await service.modify(reservation_Id, reservation);
+  const data = await service.edit(reservation_Id, reservation);
   reservation.reservation_id = data.reservation_id;
   res.json({ data: reservation });
 }
@@ -203,13 +203,13 @@ module.exports = {
     isAlreadyFinished,
     asyncErrorBoundary(update),
   ],
-  modify: [
+  edit: [
     isValidReservation,
     isNotOnTuesday,
     isInTheFuture,
     isWithinOpenHours,
     asyncErrorBoundary(reservationExists),
     hasBookedStatus,
-    asyncErrorBoundary(modify),
+    asyncErrorBoundary(edit),
   ],
 };

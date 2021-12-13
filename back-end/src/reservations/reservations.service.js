@@ -54,7 +54,7 @@ function search(mobile_number) {
 }
 
 //updates when reservation is modified by user
-function modify(reservation_id, reservation) {
+function edit(reservation_id, reservation) {
   return knex("reservations")
     .select("*")
     .where({ reservation_id })
@@ -71,5 +71,5 @@ module.exports = {
   finish,
   update,
   search,
-  modify,
+  edit,
 };
