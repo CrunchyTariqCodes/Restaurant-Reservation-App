@@ -24,12 +24,12 @@ function Menu() {
         <ul className="nav navbar-nav text-white" id="accordionSidebar">
           <li className="nav-item">
             <Link className="nav-link" to="/dashboard">
-              <span class="oi oi-spreadsheet" />
+              <span className="oi oi-spreadsheet" />
               &nbsp;Dashboard
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/search">
+            <Link className="nav-link" to="/">
               <span className="oi oi-magnifying-glass" />
               &nbsp;Search
             </Link>
@@ -42,7 +42,7 @@ function Menu() {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/tables/new">
-              <span class="oi oi-vertical-align-top" />
+              <span className="oi oi-vertical-align-top" />
               &nbsp;New Table
             </Link>
           </li>
